@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito | Urban USS</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <main class="cart-page">
+      <h1>Tu Carrito</h1>
+      <section id="cartContainer" class="cart-container">
+        <!-- Los productos se cargarán dinámicamente con cart.js -->
+      </section>
+
+      <div class="cart-summary">
+        <p><strong>Total:</strong> <span id="cartTotal">S/ 0.00</span></p>
+        <button id="checkoutBtn" class="btn-primary">Finalizar compra</button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+  </body>
+</html>

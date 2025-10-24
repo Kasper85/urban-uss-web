@@ -1,0 +1,51 @@
+/* ===============================
+   PÁGINA DE CONTACTO
+   =============================== */
+
+.contact-page {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+textarea {
+  border: 1px solid var(--color-gris);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: var(--fuente-principal);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--color-acento);
+}
+
+button[type="submit"] {
+  align-self: center;
+  margin-top: 1rem;
+}

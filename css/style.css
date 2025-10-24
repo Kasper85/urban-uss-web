@@ -1,0 +1,59 @@
+/* ===============================
+ESTILOS GENERALES
+=============================== */
+
+:root {
+--color-principal: #111813;
+--color-secundario: #63886f;
+--color-fondo: #ffffff;
+--color-acento: #3be875;
+--color-gris: #f0f4f2;
+--fuente-principal: "Be Vietnam Pro", "Noto Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+font-family: var(--fuente-principal);
+background-color: var(--color-fondo);
+color: var(--color-principal);
+line-height: 1.6;
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+ul {
+list-style: none;
+}
+
+img {
+max-width: 100%;
+display: block;
+}
+
+.btn-primary {
+display: inline-block;
+background-color: var(--color-acento);
+color: var(--color-principal);
+padding: 0.75em 1.5em;
+border-radius: 8px;
+font-weight: bold;
+transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+background-color: #34d167;
+}
+
+.link-more {
+color: var(--color-secundario);
+text-decoration: underline;
+font-size: 0.9rem;
+}

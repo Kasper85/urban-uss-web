@@ -1,0 +1,76 @@
+/* ===============================
+HEADER / NAVEGACIÓN
+=============================== */
+
+.site-header {
+border-bottom: 1px solid #f0f4f2;
+background-color: #ffffff;
+padding: 1rem 2rem;
+}
+
+.header-container {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 45px;
+  height: auto;
+}
+
+.logo h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+
+.main-nav ul {
+display: flex;
+gap: 1.5rem;
+}
+
+.main-nav a {
+color: var(--color-principal);
+font-weight: 500;
+transition: color 0.3s;
+}
+
+.main-nav a:hover {
+color: var(--color-secundario);
+}
+
+.header-icons {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+}
+
+.header-icons button {
+background: var(--color-gris);
+border: none;
+border-radius: 6px;
+padding: 0.5rem;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.header-icons button:hover {
+background: var(--color-acento);
+}
+
+.header-icons img {
+width: 20px;
+height: 20px;
+}

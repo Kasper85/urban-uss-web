@@ -1,0 +1,105 @@
+/* ===============================
+   PÁGINA PRINCIPAL (Homepage)
+   =============================== */
+
+/* --- Sección Hero --- */
+.hero {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("../assets/img/banner.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: left;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  padding: 3rem;
+  border-radius: 10px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.hero-content p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #eaeaea;
+}
+
+.hero .btn-primary {
+  margin-top: 1.5rem;
+}
+
+/* --- Sección Categorías --- */
+.categories {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.categories h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.category-item img {
+  border-radius: 8px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 100%;
+  max-width: 220px;
+}
+
+.category-item p {
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: var(--color-principal);
+}
+
+/* --- Sección Sobre Nosotros (mini) --- */
+.about {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  color: var(--color-principal);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.about .link-more {
+  font-weight: 500;
+}
