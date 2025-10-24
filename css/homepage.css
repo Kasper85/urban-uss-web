@@ -103,3 +103,45 @@
 .about .link-more {
   font-weight: 500;
 }
+
+/* --- Responsive Hero --- */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem;
+    min-height: 380px;
+    align-items: flex-end;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+/* --- Responsive Categorías --- */
+@media (max-width: 600px) {
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .category-item img {
+    max-width: 160px;
+  }
+
+  .categories h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-item img {
+    max-width: 200px;
+  }
+}

@@ -16,7 +16,7 @@ const products = [
     name: "Pantalón Denim Mujer",
     description: "Ajuste moderno y elegante.",
     price: 119.9,
-    image: "pantalon1.jpg",
+    image: "pantalonm1.jpg",
     category: "mujer",
   },
   {
@@ -24,7 +24,7 @@ const products = [
     name: "Gorra Negra",
     description: "Accesorio esencial para tu outfit.",
     price: 49.9,
-    image: "accesorio1.jpg",
+    image: "gorra1.jpg",
     category: "accesorios",
   },
   {
