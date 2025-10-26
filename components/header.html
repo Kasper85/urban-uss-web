@@ -1,33 +1,46 @@
-<header class="site-header">
-  <div class="header-container">
-    <a href="index.html" class="logo">
-      <img src="../assets/img/logo.png" alt="Urban USS" />
-      <h1>Urban USS</h1>
-    </a>
+<header class="main-header">
+  <!-- Logo -->
+  <a href="index.html" class="logo">
+    <img src="../assets/img/logo.png" alt="Urban USS" />
+    <span>Urban USS</span>
+  </a>
 
-
-<nav class="main-nav">
-  <ul>
-    <li><a href="../catalog.html">Nuevas Llegadas</a></li>
-    <li><a href="../catalog.html">Hombres</a></li>
-    <li><a href="../catalog.html">Mujeres</a></li>
-    <li><a href="../catalog.html">Accesorios</a></li>
-    <li><a href="../catalog.html">Ofertas</a></li>
-  </ul>
-</nav>
-
-<div class="header-icons">
-  <button id="searchBtn" title="Buscar">
-    <img src="../assets/icons/search.svg" alt="Buscar" />
+  <!-- Botón menú hamburguesa -->
+  <button class="menu-toggle" id="menuToggle">
+    <img src="../assets/icons/menu.svg" alt="Menú" />
+    <span>Menú</span>
   </button>
-  <button id="userBtn" title="Usuario">
-    <img src="../assets/icons/user.svg" alt="Usuario" />
-  </button>
-  <button id="cartBtn" title="Carrito">
-    <img src="../assets/icons/cart.svg" alt="Carrito" />
-  </button>
-</div>
 
+  <!-- Barra de búsqueda centrada -->
+  <form class="search-bar">
+    <input type="text" placeholder="Buscar en Urban USS" />
+    <button type="submit">
+      <img src="../assets/icons/search.svg" alt="Buscar" />
+    </button>
+  </form>
 
+  <!-- Iconos -->
+  <div class="header-icons">
+    <button title="Favoritos">
+      <img src="../assets/icons/heart.svg" alt="Favoritos" />
+    </button>
+    <button title="Usuario">
+      <img src="../assets/icons/user.svg" alt="Usuario" />
+    </button>
+    <button id="cartBtn" title="Carrito">
+      <img src="../assets/icons/cart.svg" alt="Carrito" />
+    </button>
   </div>
 </header>
+
+<!-- Menú desplegable -->
+<nav class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="catalog.html">Hombres</a></li>
+    <li><a href="catalog.html">Mujeres</a></li>
+    <li><a href="catalog.html">Accesorios</a></li>
+    <li><a href="about.html">Acerca de</a></li>
+    <li><a href="contact.html">Contacto</a></li>
+  </ul>
+</nav>

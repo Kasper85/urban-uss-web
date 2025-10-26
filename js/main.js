@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((res) => res.text())
       .then((data) => {
         headerContainer.innerHTML = data;
-        attachHeaderEvents(); // 👈 importante
+        attachHeaderEvents(); // Espera a que el header se cargue
       })
       .catch((err) => console.error("Error cargando header:", err));
   }
@@ -31,28 +31,24 @@ document.addEventListener("DOMContentLoaded", () => {
 function attachHeaderEvents() {
   const cartBtn = document.getElementById("cartBtn");
   if (cartBtn) {
-    cartBtn.addEventListener("click", () => {
-      window.location.href = "cart.html";
-    });
+    cartBtn.addEventListener("click", () => (window.location.href = "cart.html"));
   }
 
-  const userBtn = document.getElementById("userBtn");
-  if (userBtn) {
-    userBtn.addEventListener("click", () => {
-      alert("Funcionalidad de usuario aún no implementada 👤");
-    });
-  }
-
-  const searchBtn = document.getElementById("searchBtn");
-  if (searchBtn) {
-    searchBtn.addEventListener("click", () => {
-      alert("Funcionalidad de búsqueda aún no implementada 🔍");
+//  Nuevo: conectar menú hamburguesa
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("active");
     });
   }
 
     fixLogoLink();
 }
 
+
+
+// Arreglar link del logo para que siempre lleve al index
 function fixLogoLink() {
   const logo = document.querySelector(".logo");
   if (logo) {

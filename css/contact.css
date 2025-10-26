@@ -1,51 +1,117 @@
 /* ===============================
-   PÁGINA DE CONTACTO
+   CONTACTO MODERNO Y RESPONSIVO
    =============================== */
 
-.contact-page {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 1rem;
+.contact-container {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.contact-header {
+.contact-hero {
   text-align: center;
   margin-bottom: 2rem;
 }
 
+.contact-hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+.contact-hero p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* --- Grid principal --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* --- Formulario --- */
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
+  background: #fafafa;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.form-group {
+.contact-form .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-label {
+.contact-form label {
   font-weight: 600;
+  color: #333;
 }
 
-input,
-textarea {
-  border: 1px solid var(--color-gris);
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 0.75rem 1rem;
-  font-family: var(--fuente-principal);
+  padding: 0.8rem 1rem;
   font-size: 1rem;
-  outline: none;
+  font-family: var(--fuente-principal);
+  resize: none;
   transition: border-color 0.3s ease;
 }
 
-input:focus,
-textarea:focus {
-  border-color: var(--color-acento);
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-acento, #007bff);
 }
 
-button[type="submit"] {
-  align-self: center;
-  margin-top: 1rem;
+.contact-form button {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+/* --- Información lateral --- */
+.contact-info {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info h2 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.contact-info li {
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+.contact-info .map img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    margin-top: 1rem;
+  }
 }
