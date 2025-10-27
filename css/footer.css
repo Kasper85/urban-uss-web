@@ -115,18 +115,39 @@
 /* --------- Responsive --------- */
 @media (max-width: 768px) {
   .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    gap: 1.2rem; 
   }
 
   .footer-links {
-    flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem; 
   }
 
+  .footer-links div {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-brand,
   .social-links {
-    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-bottom {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
   }
 }
 
+@media (max-width: 480px) {
+  .footer-container {
+    gap: 1rem;
+  }
+
+  .footer-links {
+    gap: 0.8rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+}
