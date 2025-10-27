@@ -25,9 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-/**
- * Función para conectar eventos una vez que el header se haya cargado
- */
+//Función para conectar eventos una vez que el header se haya cargado
+
 function attachHeaderEvents() {
   const cartBtn = document.getElementById("cartBtn");
   if (cartBtn) {
@@ -46,7 +45,21 @@ function attachHeaderEvents() {
     fixLogoLink();
 }
 
+//EFECTO DE HEADER DESLIZANTE AL SCROLL
+  
+document.addEventListener("scroll", () => {
+  const header = document.querySelector(".main-header");
+  if (!header) return; // Esperar a que se cargue
 
+  const currentScroll = window.scrollY;
+  const threshold = 100; // Distancia antes de ocultar
+
+  if (currentScroll > threshold) {
+    header.classList.add("header-hidden");
+  } else {
+    header.classList.remove("header-hidden");
+  }
+});
 
 // Arreglar link del logo para que siempre lleve al index
 function fixLogoLink() {
