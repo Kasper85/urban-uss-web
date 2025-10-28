@@ -68,8 +68,6 @@ function attachHeaderEvents() {
     });
   }
 
-  fixLogoLink();
-
   stickyHeader = document.querySelector(".main-header");
   contentToPush = document.querySelector("main"); 
 
@@ -84,13 +82,3 @@ function attachHeaderEvents() {
   }
 }
 
-// Arreglar link del logo para que siempre lleve al index
-function fixLogoLink() {
-  const logo = document.querySelector(".logo");
-  if (logo) {
-    logo.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.location.href = "index.html";
-    });
-  }
-}
