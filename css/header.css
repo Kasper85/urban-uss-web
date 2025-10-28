@@ -11,6 +11,9 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.35s ease, box-shadow 0.3s ease;
   z-index: 1000;
   flex-wrap: wrap;
   gap: 1rem;
@@ -182,20 +185,5 @@
   }
 }
 
-/* ===============================
-   ANIMACIÓN AL HACER SCROLL
-   =============================== */
 
-.main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  transition: transform 0.35s ease, box-shadow 0.3s ease;
-  z-index: 1000;
-}
 
-/* Compensa la altura del header en el cuerpo */
-body {
-  padding-top: 70px; /* ajusta según la altura del header real */
-}
