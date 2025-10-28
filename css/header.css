@@ -2,23 +2,32 @@
    HEADER MODERNO Y RESPONSIVO
    =============================== */
 
+
+
 .main-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.8rem 1.5rem;
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  transition: transform 0.35s ease, box-shadow 0.3s ease;
-  z-index: 1000;
-  flex-wrap: wrap;
-  gap: 1rem;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0.8rem 1.5rem;
+ background-color: #fff;
+ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); 
+ position: relative; 
+ transition: transform 0.35s ease, box-shadow 0.3s ease;
+ flex-wrap: wrap;
+ gap: 1rem;
+ width: 100%;
+ box-sizing: border-box; 
 }
 
+.main-header.sticky {
+ position: fixed;
+ top: 0;
+ left: 0; /* Asegura que se alinee bien */
+ width: 100%;
+ z-index: 1000;
+ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); 
+}
+   
 /* Logo */
 .logo {
   display: flex;

@@ -1,73 +1,96 @@
 /* ===============================
-   JS GENERAL DEL SITIO
-   =============================== */
+   JS GENERAL DEL SITIO
+   =============================== */
+
+let stickyHeader = null;
+let contentToPush = null; 
+let stickyOffset = 0;
+let headerHeight = 0;
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Cargar header
-  const headerContainer = document.getElementById("header");
-  if (headerContainer) {
-    fetch("components/header.html")
-      .then((res) => res.text())
-      .then((data) => {
-        headerContainer.innerHTML = data;
-        attachHeaderEvents(); // Espera a que el header se cargue
-      })
-      .catch((err) => console.error("Error cargando header:", err));
-  }
+  // Cargar header
+  const headerContainer = document.getElementById("header");
+  if (headerContainer) {
+    fetch("components/header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        headerContainer.innerHTML = data;
+        attachHeaderEvents(); // Espera a que el header se cargue
+      })
+      .catch((err) => console.error("Error cargando header:", err));
+  }
 
-  // Cargar footer
-  const footerContainer = document.getElementById("footer");
-  if (footerContainer) {
-    fetch("components/footer.html")
-      .then((res) => res.text())
-      .then((data) => (footerContainer.innerHTML = data))
-      .catch((err) => console.error("Error cargando footer:", err));
-  }
+  // Cargar footer
+  const footerContainer = document.getElementById("footer");
+  if (footerContainer) {
+    fetch("components/footer.html")
+      .then((res) => res.text())
+      .then((data) => (footerContainer.innerHTML = data))
+      .catch((err) => console.error("Error cargando footer:", err));
+  }
+
+
+  window.onscroll = () => {
+    handleStickyHeader();
+  };
+
 });
 
-//Función para conectar eventos una vez que el header se haya cargado
 
-function attachHeaderEvents() {
-  const cartBtn = document.getElementById("cartBtn");
-  if (cartBtn) {
-    cartBtn.addEventListener("click", () => (window.location.href = "cart.html"));
+function handleStickyHeader() {
+
+  if (!stickyHeader || !contentToPush) {
+    return;
   }
 
-//  Nuevo: conectar menú hamburguesa
-  const menuToggle = document.getElementById("menuToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("active");
-    });
+  if (window.pageYOffset > stickyOffset) {
+    stickyHeader.classList.add("sticky");
+    contentToPush.style.paddingTop = `${headerHeight}px`;
+  } else {
+    stickyHeader.classList.remove("sticky");
+    contentToPush.style.paddingTop = "0";
   }
-
-    fixLogoLink();
 }
 
-//EFECTO DE HEADER DESLIZANTE AL SCROLL
-  
-document.addEventListener("scroll", () => {
-  const header = document.querySelector(".main-header");
-  if (!header) return; // Esperar a que se cargue
+//Función para conectar eventos una vez que el header se haya cargado
+function attachHeaderEvents() {
+  const cartBtn = document.getElementById("cartBtn");
+  if (cartBtn) {
+    cartBtn.addEventListener("click", () => (window.location.href = "cart.html"));
+  }
+  // Conectar menú hamburguesa
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("active");
+    });
+  }
 
-  const currentScroll = window.scrollY;
-  const threshold = 100; // Distancia antes de ocultar
+  fixLogoLink();
 
-  if (currentScroll > threshold) {
-    header.classList.add("header-hidden");
+  stickyHeader = document.querySelector(".main-header");
+  contentToPush = document.querySelector("main"); 
+
+  if (stickyHeader && contentToPush) {
+    stickyOffset = stickyHeader.offsetTop;
+    headerHeight = stickyHeader.offsetHeight;
+
+    handleStickyHeader();
   } else {
-    header.classList.remove("header-hidden");
+    if (!stickyHeader) console.error("No se encontró el elemento .main-header");
+    if (!contentToPush) console.error("No se encontró el elemento de contenido principal ('main')");
   }
-});
+}
 
 // Arreglar link del logo para que siempre lleve al index
 function fixLogoLink() {
-  const logo = document.querySelector(".logo");
-  if (logo) {
-    logo.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.location.href = "index.html";
-    });
-  }
+  const logo = document.querySelector(".logo");
+  if (logo) {
+    logo.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "index.html";
+    });
+  }
 }
