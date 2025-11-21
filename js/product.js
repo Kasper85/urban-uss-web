@@ -1,82 +1,85 @@
 /* ===============================
-   PÁGINA DE PRODUCTO INDIVIDUAL
+   PÁGINA DE PRODUCTO INDIVIDUAL (jQuery)
    (con talla + cantidad)
    =============================== */
 
 const CART_KEY = "urbanUSS_cart";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("productContainer");
+$(document).ready(function () {
+  const $container = $("#productContainer");
 
   // 📦 Obtener el ID del producto desde la URL
   const params = new URLSearchParams(window.location.search);
   const productId = parseInt(params.get("id"));
 
   // Buscar producto en data.js
-  const product = products.find((p) => p.id === productId) || products[0];
+  const product = products.find(p => p.id === productId) || products[0];
 
-  // Renderizar producto
-  container.innerHTML = `
-    <div class="product-image">
-      <img src="assets/img/productos/${product.image}" alt="${product.name}" />
-    </div>
+  // Renderizar producto con Bootstrap
+  $container.html(`
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <img src="assets/img/productos/${product.image}" alt="${product.name}" class="img-fluid rounded shadow-sm w-100 object-fit-cover" style="max-height: 500px;">
+            </div>
 
-    <div class="product-info">
-      <h1>${product.name}</h1>
-      <p>${product.description}</p>
-      <div class="product-price">S/ ${product.price.toFixed(2)}</div>
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bold mb-3">${product.name}</h1>
+                <p class="lead text-secondary mb-4">${product.description}</p>
+                <div class="h2 text-success fw-bold mb-4">S/ ${product.price.toFixed(2)}</div>
 
-      <div class="size-selector">
-        <p><strong>Talla:</strong></p>
-        <button data-size="S">S</button>
-        <button data-size="M">M</button>
-        <button data-size="L">L</button>
-        <button data-size="XL">XL</button>
-      </div>
+                <div class="mb-4">
+                    <p class="fw-bold mb-2">Talla:</p>
+                    <div class="btn-group size-selector" role="group">
+                        <button type="button" class="btn btn-outline-dark" data-size="S">S</button>
+                        <button type="button" class="btn btn-outline-dark" data-size="M">M</button>
+                        <button type="button" class="btn btn-outline-dark" data-size="L">L</button>
+                        <button type="button" class="btn btn-outline-dark" data-size="XL">XL</button>
+                    </div>
+                </div>
 
-      <div class="quantity-selector">
-        <p><strong>Cantidad:</strong></p>
-        <div class="quantity-controls">
-          <button id="decreaseQty">-</button>
-          <input type="number" id="productQty" value="1" min="1" />
-          <button id="increaseQty">+</button>
+                <div class="mb-4">
+                    <p class="fw-bold mb-2">Cantidad:</p>
+                    <div class="input-group" style="width: 150px;">
+                        <button class="btn btn-outline-secondary" type="button" id="decreaseQty">-</button>
+                        <input type="number" class="form-control text-center" id="productQty" value="1" min="1">
+                        <button class="btn btn-outline-secondary" type="button" id="increaseQty">+</button>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-lg w-100 text-uppercase fw-bold add-to-cart">Agregar al carrito</button>
+            </div>
         </div>
-      </div>
-
-      <button class="add-to-cart">Agregar al carrito</button>
-    </div>
-  `;
+    `);
 
   // --- Selección de talla ---
-  const sizeButtons = container.querySelectorAll(".size-selector button");
   let selectedSize = null;
+  const $sizeButtons = $(".size-selector button");
 
-  sizeButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      sizeButtons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      selectedSize = btn.dataset.size;
-    });
+  $sizeButtons.on("click", function () {
+    $sizeButtons.removeClass("active btn-dark").addClass("btn-outline-dark");
+    $(this).removeClass("btn-outline-dark").addClass("active btn-dark");
+    selectedSize = $(this).data("size");
   });
 
   // --- Control de cantidad ---
-  const qtyInput = container.querySelector("#productQty");
-  container.querySelector("#increaseQty").addEventListener("click", () => {
-    qtyInput.value = parseInt(qtyInput.value) + 1;
+  const $qtyInput = $("#productQty");
+
+  $("#increaseQty").on("click", function () {
+    $qtyInput.val(parseInt($qtyInput.val()) + 1);
   });
-  container.querySelector("#decreaseQty").addEventListener("click", () => {
-    if (qtyInput.value > 1) qtyInput.value = parseInt(qtyInput.value) - 1;
+
+  $("#decreaseQty").on("click", function () {
+    if ($qtyInput.val() > 1) $qtyInput.val(parseInt($qtyInput.val()) - 1);
   });
 
   // --- Agregar al carrito ---
-  const addToCartBtn = container.querySelector(".add-to-cart");
-  addToCartBtn.addEventListener("click", () => {
+  $(".add-to-cart").on("click", function () {
     if (!selectedSize) {
       alert("Por favor selecciona una talla antes de agregar al carrito.");
       return;
     }
 
-    const quantity = parseInt(qtyInput.value);
+    const quantity = parseInt($qtyInput.val());
     addToCart(product, selectedSize, quantity);
   });
 });
@@ -84,9 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function addToCart(product, size, quantity) {
   let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
 
-  const existing = cart.find(
-    (item) => item.id === product.id && item.size === size
-  );
+  const existing = cart.find(item => item.id === product.id && item.size === size);
 
   if (existing) {
     existing.quantity += quantity;
@@ -97,7 +98,7 @@ function addToCart(product, size, quantity) {
       price: product.price,
       image: product.image,
       size,
-      quantity,
+      quantity
     });
   }
 

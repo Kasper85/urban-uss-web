@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carrito | Urban USS</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/cart.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito | Urban USS</title>
 
-  <body>
-    <!-- Header -->
-    <div id="header"></div>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+</head>
 
-    <main class="cart-page">
-      <h1>Tu Carrito</h1>
-      <section id="cartContainer" class="cart-container">
-        <!-- Los productos se cargarán dinámicamente con cart.js -->
-      </section>
+<body>
+  <!-- Header -->
+  <div id="header"></div>
 
-      <div class="cart-summary">
-        <p><strong>Total:</strong> <span id="cartTotal">S/ 0.00</span></p>
-        <button id="checkoutBtn" class="btn-primary">Finalizar compra</button>
+  <main class="cart-page py-5">
+    <div class="container">
+      <h1 class="mb-4 fw-bold text-uppercase">Tu Carrito</h1>
+
+      <div class="row">
+        <div class="col-lg-8">
+          <section id="cartContainer" class="cart-container d-flex flex-column gap-3">
+            <!-- Los productos se cargarán dinámicamente con cart.js -->
+          </section>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="card border-0 shadow-sm p-4 bg-light">
+            <h3 class="h5 fw-bold mb-3">Resumen del pedido</h3>
+            <div class="d-flex justify-content-between mb-4">
+              <span class="fw-bold">Total:</span>
+              <span id="cartTotal" class="fw-bold text-success">S/ 0.00</span>
+            </div>
+            <button id="checkoutBtn" class="btn btn-primary w-100 text-uppercase fw-bold">Finalizar compra</button>
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <!-- Footer -->
-    <div id="footer"></div>
+  <!-- Footer -->
+  <div id="footer"></div>
 
-    <!-- JS -->
-    <script src="js/main.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/cart.js"></script>
-  </body>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JS -->
+  <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
 </html>

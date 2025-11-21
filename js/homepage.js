@@ -1,19 +1,20 @@
 /* ===============================
-LÓGICA ESPECÍFICA DE LA HOMEPAGE
-=============================== */
+   LÓGICA ESPECÍFICA DE LA HOMEPAGE (jQuery)
+   =============================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-console.log("Homepage lista 🚀");
+$(document).ready(function () {
+    console.log("Homepage lista 🚀");
 
-// Animación simple del botón principal
-const btn = document.querySelector(".btn-primary");
-if (btn) {
-btn.addEventListener("mouseover", () => {
-btn.style.transform = "scale(1.05)";
-btn.style.transition = "transform 0.3s ease";
-});
-btn.addEventListener("mouseleave", () => {
-btn.style.transform = "scale(1)";
-});
-}
+    // Animación simple del botón principal
+    $(".btn-primary").hover(
+        function () {
+            $(this).css({
+                "transform": "scale(1.05)",
+                "transition": "transform 0.3s ease"
+            });
+        },
+        function () {
+            $(this).css("transform", "scale(1)");
+        }
+    );
 });

@@ -1,17 +1,16 @@
 /* ===============================
-   VALIDACIÓN DE FORMULARIO DE CONTACTO
+   VALIDACIÓN DE FORMULARIO DE CONTACTO (jQuery)
    =============================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-  if (!form) return; 
+$(document).ready(function () {
+  const $form = $("#contactForm");
 
-  form.addEventListener("submit", (e) => {
+  $form.on("submit", function (e) {
     e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+    const name = $("#name").val().trim();
+    const email = $("#email").val().trim();
+    const message = $("#message").val().trim();
 
     if (!name || !email || !message) {
       alert("Por favor completa todos los campos.");
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     alert(`Gracias, ${name}! Tu mensaje fue enviado correctamente.`);
-    form.reset();
+    this.reset(); // 'this' refers to the form DOM element
   });
 
   function validateEmail(email) {

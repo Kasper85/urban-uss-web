@@ -1,59 +1,76 @@
 /* ===============================
-ESTILOS GENERALES
-=============================== */
+   ESTILOS GENERALES (BOOTSTRAP OVERRIDES)
+   =============================== */
 
 :root {
---color-principal: #111813;
---color-secundario: #63886f;
---color-fondo: #ffffff;
---color-acento: #3be875;
---color-gris: #f0f4f2;
---fuente-principal: "Be Vietnam Pro", "Noto Sans", sans-serif;
+  --color-principal: #111813;
+  --color-secundario: #63886f;
+  --color-fondo: #ffffff;
+  --color-acento: #3be875;
+  --color-gris: #f0f4f2;
+  --fuente-principal: "Be Vietnam Pro", "Noto Sans", sans-serif;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  }
 
 body {
-font-family: var(--fuente-principal);
-background-color: var(--color-fondo);
-color: var(--color-principal);
-line-height: 1.6;
+  font-family: var(--fuente-principal);
+  background-color: var(--color-fondo);
+  color: var(--color-principal);
+  padding-top: 76px; /* Height of fixed navbar */
 }
 
-a {
-text-decoration: none;
-color: inherit;
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-ul {
-list-style: none;
-}
-
-img {
-max-width: 100%;
-display: block;
-}
-
+/* Buttons */
 .btn-primary {
-display: inline-block;
-background-color: var(--color-acento);
-color: var(--color-principal);
-padding: 0.75em 1.5em;
-border-radius: 8px;
-font-weight: bold;
-transition: background-color 0.3s ease;
+  background-color: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-principal);
 }
 
 .btn-primary:hover {
-background-color: #34d167;
+  background-color: #34d167;
+  border-color: #34d167;
+  color: var(--color-principal);
 }
 
-.link-more {
-color: var(--color-secundario);
-text-decoration: underline;
-font-size: 0.9rem;
+/* Cards */
+.category-card img {
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.05);
+}
+
+.category-card .card-img-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+}
+
+/* Navbar */
+.navbar-brand span {
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-acento);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
 }

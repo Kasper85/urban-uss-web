@@ -1,30 +1,28 @@
 /* ===============================
-   LÓGICA DEL CATÁLOGO DE PRODUCTOS
-   (ahora con navegación a product.html)
+   LÓGICA DEL CATÁLOGO DE PRODUCTOS (jQuery)
    =============================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-  const grid = document.getElementById("productGrid");
-  const filterCategory = document.getElementById("filterCategory");
-  const filterOrder = document.getElementById("filterOrder");
+$(document).ready(function () {
+  const $grid = $("#productGrid");
+  const $filterCategory = $("#filterCategory");
+  const $filterOrder = $("#filterOrder");
 
   let currentProducts = [...products];
 
   renderProducts(currentProducts);
 
   // Filtro por categoría
-  filterCategory.addEventListener("change", () => {
-    const selected = filterCategory.value;
-    currentProducts =
-      selected === "all"
-        ? [...products]
-        : products.filter((p) => p.category === selected);
+  $filterCategory.on("change", function () {
+    const selected = $(this).val();
+    currentProducts = selected === "all"
+      ? [...products]
+      : products.filter(p => p.category === selected);
     renderProducts(currentProducts);
   });
 
   // Ordenar por precio
-  filterOrder.addEventListener("change", () => {
-    const selected = filterOrder.value;
+  $filterOrder.on("change", function () {
+    const selected = $(this).val();
     let sorted = [...currentProducts];
 
     if (selected === "priceAsc") sorted.sort((a, b) => a.price - b.price);
@@ -35,25 +33,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Renderizado de productos
   function renderProducts(list) {
-    grid.innerHTML = "";
-    list.forEach((product) => {
-      const item = document.createElement("div");
-      item.classList.add("product-card");
-      item.innerHTML = `
-        <img src="assets/img/productos/${product.image}" alt="${product.name}">
-        <div class="product-info">
-          <h3>${product.name}</h3>
-          <p>${product.description}</p>
-          <div class="product-price">S/ ${product.price.toFixed(2)}</div>
-        </div>
-      `;
+    $grid.empty();
+    list.forEach(product => {
+      const $col = $("<div>").addClass("col-md-4 col-sm-6");
+      const $card = $("<div>").addClass("card h-100 border-0 shadow-sm product-card cursor-pointer");
 
-      // 🔗 Evento: al hacer clic, abrir product.html con ID
-      item.addEventListener("click", () => {
+      // Evento click para ir al detalle
+      $card.on("click", function () {
         window.location.href = `product.html?id=${product.id}`;
       });
 
-      grid.appendChild(item);
+      $card.html(`
+                <img src="assets/img/productos/${product.image}" class="card-img-top object-fit-cover" alt="${product.name}" style="height: 300px;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">${product.name}</h5>
+                    <p class="card-text text-muted text-truncate">${product.description}</p>
+                    <p class="card-text fw-bold text-success fs-5">S/ ${product.price.toFixed(2)}</p>
+                </div>
+            `);
+
+      $col.append($card);
+      $grid.append($col);
     });
   }
 });
