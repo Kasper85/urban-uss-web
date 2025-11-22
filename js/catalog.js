@@ -9,6 +9,13 @@ $(document).ready(function () {
 
   let currentProducts = [...products];
 
+  const urlParams= new URLSearchParams(window.location.search)
+  const initialCategory= urlParams.get('category')
+  if (initialCategory){
+    currentProducts = products.filter(p=> p.category.toLowerCase()=== initialCategory.toLowerCase());
+    $filterCategory.val(initialCategory.toLowerCase());
+  }
+
   renderProducts(currentProducts);
 
   // Filtro por categoría
@@ -16,7 +23,7 @@ $(document).ready(function () {
     const selected = $(this).val();
     currentProducts = selected === "all"
       ? [...products]
-      : products.filter(p => p.category === selected);
+      : products.filter(p => p.category.toLowerCase() === selected.toLowerCase());
     renderProducts(currentProducts);
   });
 
@@ -35,8 +42,8 @@ $(document).ready(function () {
   function renderProducts(list) {
     $grid.empty();
     list.forEach(product => {
-      const $col = $("<div>").addClass("col-md-4 col-sm-6");
-      const $card = $("<div>").addClass("card h-100 border-0 shadow-sm product-card cursor-pointer");
+      const $col = $("<div>").addClass("col-6 col-md-4 col-lg-3 h-100");
+      const $card = $("<div>").addClass("card h-100 product-card cursor-pointer");
 
       // Evento click para ir al detalle
       $card.on("click", function () {
@@ -44,11 +51,11 @@ $(document).ready(function () {
       });
 
       $card.html(`
-                <img src="assets/img/productos/${product.image}" class="card-img-top object-fit-cover" alt="${product.name}" style="height: 300px;">
-                <div class="card-body">
+                <img src="assets/img/productos/${product.image}" class="card-img-top" alt="${product.name}" style="height: 300px;">
+                <div class="card-body product-info h-100">
                     <h5 class="card-title fw-bold">${product.name}</h5>
                     <p class="card-text text-muted text-truncate">${product.description}</p>
-                    <p class="card-text fw-bold text-success fs-5">S/ ${product.price.toFixed(2)}</p>
+                    <p class="card-text fw-bold text-success fs-5 h-100">S/ ${product.price.toFixed(2)}</p>
                 </div>
             `);
 

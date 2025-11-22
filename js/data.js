@@ -9,7 +9,7 @@ const products = [
     description: "Estilo urbano y cómodo.",
     price: 89.9,
     image: "camisa1.jpg",
-    category: "hombre",
+    category: "hombres",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const products = [
     description: "Ajuste moderno y elegante.",
     price: 119.9,
     image: "pantalonm1.jpg",
-    category: "mujer",
+    category: "mujeres",
   },
   {
     id: 3,
@@ -33,6 +33,6 @@ const products = [
     description: "Ideal para uso diario.",
     price: 79.9,
     image: "camisa2.jpg",
-    category: "hombre",
+    category: "hombres",
   },
 ];
