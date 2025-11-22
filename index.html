@@ -7,14 +7,15 @@
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/homepage.css" />
+
     <!-- Fuentes Google -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
   </head>
 
   <body>
@@ -22,21 +23,88 @@
     <div id="header"></div>
 
     <main class="homepage">
-      <!-- Hero Section -->
-      <section class="hero position-relative text-center text-white d-flex align-items-center justify-content-center" style="background-color: var(--color-principal); min-height: 80vh;">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <h1 class="display-1 fw-bold text-uppercase mb-2">Urban USS</h1>
-              <p class="lead mb-0">Moda urbana para jóvenes con actitud</p>
-              <a href="catalog.html" class="btn btn-primary btn-lg text-uppercase fw-bold px-5 py-3 mb-3 btn-home">Ver productos</a>
 
+      <!-- ======================================================
+           HERO CARRUSEL (4 BANNERS)
+      ======================================================= -->
+      <section id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+        <div class="carousel-inner">
+
+          <!-- Slide 1 - Principal -->
+          <div class="carousel-item active">
+            <div class="hero" style="background-image: url('assets/img/banners/banner-main.png');">
+              <div class="container text-center text-white d-flex align-items-center justify-content-center">
+                <div>
+                  <h1 class="display-1 fw-bold text-uppercase mb-2">Urban USS</h1>
+                  <p class="lead mb-0">Moda urbana para jóvenes con actitud</p>
+                  <a href="catalog.html" class="btn btn-primary btn-lg text-uppercase fw-bold px-5 py-3 mb-3 btn-home">
+                    Ver productos
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- Slide 2 - Hombres -->
+          <div class="carousel-item">
+            <div class="hero" style="background-image: url('assets/img/banners/banner-men.png');">
+              <div class="container text-center text-white d-flex align-items-center justify-content-center">
+                <div>
+                  <h1 class="display-1 fw-bold text-uppercase mb-2">Hombres</h1>
+                  <p class="lead mb-0">Prendas con estilo para destacar cada día</p>
+                  <a href="catalog.html?category=hombres" class="btn btn-primary btn-lg text-uppercase fw-bold px-5 py-3 mb-3 btn-home">
+                    Ver sección Hombres
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 - Mujeres -->
+          <div class="carousel-item">
+            <div class="hero" style="background-image: url('assets/img/banners/banner-women.png');">
+              <div class="container text-center text-white d-flex align-items-center justify-content-center">
+                <div>
+                  <h1 class="display-1 fw-bold text-uppercase mb-2">Mujeres</h1>
+                  <p class="lead mb-0">Moda femenina llena de actitud y confianza</p>
+                  <a href="catalog.html?category=mujeres" class="btn btn-primary btn-lg text-uppercase fw-bold px-5 py-3 mb-3 btn-home">
+                    Ver sección Mujeres
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 - Accesorios -->
+          <div class="carousel-item">
+            <div class="hero" style="background-image: url('assets/img/banners/banner-accessories.png');">
+              <div class="container text-center text-white d-flex align-items-center justify-content-center">
+                <div>
+                  <h1 class="display-1 fw-bold text-uppercase mb-2">Accesorios</h1>
+                  <p class="lead mb-0">Detalles que completan tu outfit</p>
+                  <a href="catalog.html?category=accesorios" class="btn btn-primary btn-lg text-uppercase fw-bold px-5 py-3 mb-3 btn-home">
+                    Ver accesorios
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        <!-- Controles -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
       </section>
 
-      <!-- Categories Section -->
+      <!-- ===============================
+           CATEGORÍAS
+      ================================ -->
       <section class="categories py-5">
         <div class="container">
           <h2 class="text-center mb-5 text-uppercase fw-bold">Categorías</h2>
@@ -78,7 +146,7 @@
         </div>
       </section>
 
-      <!-- About Section -->
+      <!-- SOBRE NOSOTROS -->
       <section class="about py-5 bg-light">
         <div class="container text-center">
           <div class="row justify-content-center">
@@ -101,7 +169,7 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap 5 JS Bundle -->
+    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="js/main.js"></script>
